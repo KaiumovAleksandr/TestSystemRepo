@@ -15,11 +15,6 @@ namespace TestDesigner
         public FormDesigner()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
-            {
-                radioListBox_Answers.Items.Add(i);
-            }
-            
         }
 
     }
