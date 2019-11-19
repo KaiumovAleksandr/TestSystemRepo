@@ -61,8 +61,13 @@ namespace TestDesigner
             if (currentQuestion.Answers.Count > 0)
             {
                 currentAnswer = currentQuestion.Answers[indexAnswer];
+                for(int i = 0; i < currentQuestion.Answers.Count; i++)
+                {
+                    radioListBox_Answers.Items.Add(currentQuestion.Answers[i].Text);
+                    if (currentQuestion.Answers[i].Correct) radioListBox_Answers.SelectedIndex = i;
+                }
+                    
                 textBox_Answer.Text = currentQuestion.Answers[indexAnswer].Text;
-                radioListBox_Answers.Items.AddRange(currentQuestion.Answers.ToArray());
                 label_Answers.Text = $"{++indexAnswer + 1}/{countAnswers}";
             }
             else
@@ -98,8 +103,12 @@ namespace TestDesigner
             if (currentQuestion.Answers.Count > 0)
             {
                 currentAnswer = currentQuestion.Answers[indexAnswer];
+                for (int i = 0; i < currentQuestion.Answers.Count; i++)
+                {
+                    radioListBox_Answers.Items.Add(currentQuestion.Answers[i].Text);
+                    if (currentQuestion.Answers[i].Correct) radioListBox_Answers.SelectedIndex = i;
+                }
                 textBox_Answer.Text = currentQuestion.Answers[indexAnswer].Text;
-                radioListBox_Answers.Items.AddRange(currentQuestion.Answers.ToArray());
                 label_Answers.Text = $"{++indexAnswer + 1}/{countAnswers}";
             }
             else
@@ -132,8 +141,12 @@ namespace TestDesigner
             if (currentQuestion.Answers.Count > 0)
             {
                 currentAnswer = currentQuestion.Answers[indexAnswer];
+                for (int i = 0; i < currentQuestion.Answers.Count; i++)
+                {
+                    radioListBox_Answers.Items.Add(currentQuestion.Answers[i].Text);
+                    if (currentQuestion.Answers[i].Correct) radioListBox_Answers.SelectedIndex = i;
+                }
                 textBox_Answer.Text = currentQuestion.Answers[indexAnswer].Text;
-                radioListBox_Answers.Items.AddRange(currentQuestion.Answers.ToArray());
                 label_Answers.Text = $"{++indexAnswer + 1}/{countAnswers}";
             }
             else
@@ -295,13 +308,15 @@ namespace TestDesigner
                 indexQuestion = 0;
                 countAnswers = currentTest.Questions[0].Answers.Count;
                 countQuestions = currentTest.Questions.Count;
+                foreach (var i in currentQuestion.Answers)
+                    radioListBox_Answers.Items.Add(i.Text);
                 textBox_Author.Text = currentTest.Author;
                 textBox_Subject.Text = currentTest.Subject;
                 textBox_Theme.Text = currentTest.Theme;
                 textBox_Question.Text = currentQuestion.Text;
-                //textBox_Answer.Text = currentAnswer.Text;
+                textBox_Answer.Text = currentAnswer.Text;
                 radioListBox_Answers.Items.Clear();
-                radioListBox_Answers.Items.AddRange(currentQuestion.Answers.ToArray());
+                
             }
         }
     }
