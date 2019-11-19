@@ -25,7 +25,7 @@ namespace TestDesigner
         public FormDesigner()
         {
             InitializeComponent();
-            currentTest = new Test("NewTest1.xml");
+            currentTest = new Test();
             this.Text = $"Test designer: {currentTest.Name}";
             toolStripTextBox_TestName.Text = currentTest.Name;
         }
@@ -263,7 +263,7 @@ namespace TestDesigner
                 if (File.Exists($"NewTest{i}.xml")) continue;
                 else
                 {
-                    currentTest = new Test($"NewTest{i}.xml");
+                    currentTest = new Test();
                     break;
                 }
 
